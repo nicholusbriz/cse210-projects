@@ -50,7 +50,7 @@ class Program
                     break;
 
                 case "3":
-                    Console.Write("Enter filename to save: ");
+                    Console.Write("Enter filename to save (eg.csv): ");
                     string saveFile = Console.ReadLine();
                     myJournal.SaveToFile(saveFile);
                     break;
