@@ -1,16 +1,30 @@
-
-// I added an example scripture (Proverbs 3:5-6) so users can try out the program right away.
-// This makes it easier to see how the memorizer works without needing to enter a scripture first.
-// Nicholus Turyamureba
+// ScriptureMemorizer Project
+// Creative feature: User can choose between two example scriptures to memorize.
+// This makes the program more interactive and helpful for practice.
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        // Example scripture: Proverbs 3:5-6
-        Reference reference = new Reference("Proverbs", 3, 5, 6);
-        string text = "Trust in the Lord with all thine heart and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.";
+        Console.WriteLine("Choose a scripture to memorize:");
+        Console.WriteLine("1. Proverbs 3:5-6");
+        Console.WriteLine("2. John 3:16");
+        Console.Write("Enter 1 or 2: ");
+        string choice = Console.ReadLine();
+
+        Reference reference;
+        string text;
+        if (choice == "2")
+        {
+            reference = new Reference("John", 3, 16);
+            text = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
+        }
+        else
+        {
+            reference = new Reference("Proverbs", 3, 5, 6);
+            text = "Trust in the Lord with all thine heart and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.";
+        }
         Scripture scripture = new Scripture(reference, text);
 
         while (true)
@@ -32,7 +46,7 @@ class Program
                 // Show final display and end
                 Console.Clear();
                 Console.WriteLine(scripture.GetDisplayText());
-                Console.WriteLine("\nAll words are hidden. Program will now exit.");
+                Console.WriteLine("\nAll words are hidden. Play again later!");
                 break;
             }
         }
