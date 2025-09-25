@@ -1,40 +1,29 @@
 using System;
-using System.Collections.Generic;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        List<Order> orders = new List<Order>();
-
-        // Create first order with 2 products
         Address address1 = new Address("123 Main St", "New York", "NY", "USA");
-        Customer customer1 = new Customer("John Smith", address1);
+        Customer customer1 = new Customer("Alice", address1);
         Order order1 = new Order(customer1);
-        order1.AddProduct(new Product("Widget", "W123", 10.99, 2));
-        order1.AddProduct(new Product("Gadget", "G456", 25.50, 1));
-        orders.Add(order1);
+        order1.AddProduct(new Product("Book", "B001", 10.0, 2));
+        order1.AddProduct(new Product("Pen", "P002", 1.5, 5));
 
-        // Create second order with 3 products
-        Address address2 = new Address("456 Oak Ave", "Toronto", "ON", "Canada");
-        Customer customer2 = new Customer("Maria Garcia", address2);
+        Address address2 = new Address("456 Elm St", "Toronto", "ON", "Canada");
+        Customer customer2 = new Customer("Bob", address2);
         Order order2 = new Order(customer2);
-        order2.AddProduct(new Product("Thingamajig", "T789", 15.00, 3));
-        order2.AddProduct(new Product("Doodad", "D012", 8.75, 2));
-        order2.AddProduct(new Product("Whatchamacallit", "W345", 12.25, 1));
-        orders.Add(order2);
+        order2.AddProduct(new Product("Notebook", "N003", 5.0, 3));
+        order2.AddProduct(new Product("Pencil", "P004", 0.5, 10));
 
-        // Display results for each order
-        foreach (Order order in orders)
-        {
-            Console.WriteLine("Packing Label:");
-            Console.WriteLine(order.GetPackingLabel());
-            
-            Console.WriteLine("Shipping Label:");
-            Console.WriteLine(order.GetShippingLabel());
-            
-            Console.WriteLine($"Total Price: ${order.CalculateTotalCost():F2}");
-            Console.WriteLine();
-        }
+        Console.WriteLine("Order 1:");
+        Console.WriteLine("Packing Label:\n" + order1.GetPackingLabel());
+        Console.WriteLine("Shipping Label:\n" + order1.GetShippingLabel());
+        Console.WriteLine("Total Cost: $" + order1.GetTotalCost());
+
+        Console.WriteLine("\nOrder 2:");
+        Console.WriteLine("Packing Label:\n" + order2.GetPackingLabel());
+        Console.WriteLine("Shipping Label:\n" + order2.GetShippingLabel());
+        Console.WriteLine("Total Cost: $" + order2.GetTotalCost());
     }
 }
