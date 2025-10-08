@@ -4,7 +4,7 @@ using System.Threading;
 
 public class ReflectionActivity : Activity
 {
-    private List<string> prompts = new()  
+    private List<string> prompts = new()
     {
         "Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
@@ -40,7 +40,7 @@ public class ReflectionActivity : Activity
         while (DateTime.Now < end)
         {
             Console.WriteLine(_questions[rand.Next(_questions.Count)]);
-            ShowSpinner(5);  
+            ShowSpinner(5);
         }
     }
 }
